@@ -1,6 +1,8 @@
 # src/pages/login_page.py
 from selenium.webdriver.common.by import By
-from .base_page import BasePage
+from . import BasePage
+from .account_page import AccountPage
+from .register_page import RegisterPage
 
 class LoginPage(BasePage):
     """Page object for login page"""

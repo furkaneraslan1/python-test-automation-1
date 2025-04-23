@@ -1,6 +1,7 @@
 # src/pages/product_page.py
 from selenium.webdriver.common.by import By
-from .base_page import BasePage
+from . import BasePage
+from .cart_page import CartPage
 
 class ProductPage(BasePage):
     """Page object for product details page"""

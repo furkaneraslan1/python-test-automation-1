@@ -1,6 +1,7 @@
 # src/pages/cart_page.py
 from selenium.webdriver.common.by import By
-from .base_page import BasePage
+from . import BasePage
+from .checkout_page import CheckoutPage
 
 class CartPage(BasePage):
     """Page object for shopping cart page"""
@@ -11,7 +12,7 @@ class CartPage(BasePage):
     CHECKOUT_BUTTON = (By.ID, "cart_checkout1")
     EMPTY_CART_MESSAGE = (By.CSS_SELECTOR, ".contentpanel")
     TOTAL_PRICE = (By.CSS_SELECTOR, ".bold.totalamout")
-    REMOVE_ICONS = (By.CSS_SELECTOR, ".remove")
+    REMOVE_ICONS = (By.CSS_SELECTOR, ".fa-trash-o")
     
     def __init__(self, driver):
         super().__init__(driver)

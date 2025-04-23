@@ -1,12 +1,12 @@
-# src/pages/search_results_page.py
 from selenium.webdriver.common.by import By
-from .base_page import BasePage
+from . import BasePage
+from .product_page import ProductPage
 
 class SearchResultsPage(BasePage):
     """Page object for search results page"""
     
     # Locators
-    PRODUCT_ITEMS = (By.CSS_SELECTOR, ".product-list > div")
+    PRODUCT_ITEMS = (By.CSS_SELECTOR, ".list-inline > div")
     PRODUCT_NAMES = (By.CSS_SELECTOR, ".fixed_wrapper .prdocutname")
     NO_RESULTS_MESSAGE = (By.CSS_SELECTOR, ".contentpanel")
     
