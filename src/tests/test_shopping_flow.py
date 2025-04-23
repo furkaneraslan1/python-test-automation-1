@@ -4,6 +4,8 @@ import random
 import string
 from src.pages.store_home_page import StoreHomePage
 
+@pytest.mark.smoke
+@pytest.mark.search
 def test_search_functionality(browser):
     """Test product search functionality"""
     # Initialize the homepage
@@ -28,6 +30,7 @@ def test_search_functionality(browser):
     print(f"Products found: {product_count}")
     assert product_count > 0, "No products found in search results"
 
+@pytest.mark.cart
 def test_add_to_cart(browser):
     """Test adding a product to the cart"""
     # Initialize the homepage
@@ -57,6 +60,8 @@ def test_add_to_cart(browser):
     print(f"Successfully added '{product_name}' to cart")
     print(f"Price: {product_price}")
 
+@pytest.mark.smoke
+@pytest.mark.cart
 def test_empty_cart(browser):
     """Test emptying the shopping cart"""
     # Initialize the homepage and add a product to cart

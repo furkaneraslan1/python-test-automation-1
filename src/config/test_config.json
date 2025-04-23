@@ -1,0 +1,21 @@
+{
+    "baseUrl": "https://automationteststore.com/",
+    "timeout": 10,
+    "chromedriver_path": "C:\\drivers\\chromedriver.exe",
+    "test_user": {
+      "username": "testuser",
+      "password": "password123",
+      "email": "testuser@example.com"
+    },
+    "test_products": {
+      "featured": 52,
+      "categories": {
+        "skincare": 28,
+        "makeup": 36
+      }
+    },
+    "test_data": {
+      "search_terms": ["cream", "shampoo", "lipstick"],
+      "invalid_search": "xyzabc123"
+    }
+  }

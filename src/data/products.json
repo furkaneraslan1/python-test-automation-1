@@ -1,0 +1,30 @@
+{
+    "featured_products": [
+      {
+        "id": 52,
+        "name": "Benefit Bella Bamba",
+        "price": "$28.00"
+      },
+      {
+        "id": 65,
+        "name": "Skinsheen Bronzer Stick",
+        "price": "$34.00"
+      }
+    ],
+    "categories": {
+      "skincare": [
+        {
+          "id": 74,
+          "name": "ClinicCare Facial Care Cream",
+          "price": "$69.00"
+        }
+      ],
+      "makeup": [
+        {
+          "id": 36,
+          "name": "Viva Glam Lipstick",
+          "price": "$15.00"
+        }
+      ]
+    }
+  }
