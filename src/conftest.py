@@ -72,6 +72,18 @@ def authenticated_browser(browser, config):
     
     yield browser
 
+@pytest.fixture(scope="session")
+def api_client(config):
+    """Return an API client for testing"""
+    from src.utils.api_client import APIClient
+    base_url = config.get("api_base_url", "https://reqres.in/api")
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    }
+
+    return APIClient(base_url, headers)
+
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     """Capture screenshots on test failure"""
