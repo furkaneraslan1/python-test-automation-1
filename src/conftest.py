@@ -5,6 +5,13 @@ from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
+from utils.env_variables import (
+    get_browser_from_env,
+    get_headless_from_env,
+    get_base_url_from_env,
+    get_api_url_from_env
+)
+
 # Configuration loader
 def load_config():
     """Load test configuration from config file"""
@@ -14,19 +21,18 @@ def load_config():
 
 @pytest.fixture(scope="session")
 def config():
-    """Return test configuration"""
-    return load_config()
+    config_data = load_config()
+    return config_data
 
 @pytest.fixture(scope="function")
 def browser(request, config):
     """
-    Basic fixture for Chrome browser setup.
-    Returns a WebDriver instance that will be used for the test.
+    Browser fixture with environment variable support.
     """
-    browser_type = request.config.getoption("--browser", default="chrome")
-    headless = request.config.getoption("--headless", default=False)
+    browser_type = request.config.getoption("--browser", default=get_browser_from_env())
+    headless = request.config.getoption("--headless", default=False) or get_headless_from_env()
     
-    print(f"Starting {browser_type} browser for testing...")
+    print(f"Starting {browser_type} browser for testing (headless: {headless})...")
     
     if browser_type.lower() == "chrome":
         options = webdriver.ChromeOptions()
@@ -59,7 +65,7 @@ def browser(request, config):
 @pytest.fixture(scope="function")
 def authenticated_browser(browser, config):
     """Browser with authenticated user session"""
-    from src.pages.store_home_page import StoreHomePage
+    from pages.store_home_page import StoreHomePage
     
     home_page = StoreHomePage(browser)
     home_page.navigate_to()
@@ -75,11 +81,14 @@ def authenticated_browser(browser, config):
 @pytest.fixture(scope="session")
 def api_client(config):
     """Return an API client for testing"""
-    from src.utils.api_client import APIClient
-    base_url = config.get("api_base_url", "https://reqres.in/api")
+    from utils.api_client import APIClient
+    base_url = config.get("api_base_url")
+    
+    # Add the API key to the headers
     headers = {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "x-api-key": config.get("api_key")
     }
 
     return APIClient(base_url, headers)

@@ -1,4 +1,3 @@
-# src/pages/product_page.py
 from selenium.webdriver.common.by import By
 from . import BasePage
 from .cart_page import CartPage

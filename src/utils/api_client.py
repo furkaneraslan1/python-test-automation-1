@@ -10,11 +10,14 @@ class APIClient:
         self.base_url = base_url
         self.session = requests.Session()
         self.headers = headers or {}
+        if self.headers:
+            self.session.headers.update(self.headers)  # Apply headers to session
         self.logger = logging.getLogger(__name__)
 
     def update_headers(self, headers):
         """Update the headers for the session."""
         self.headers.update(headers)
+        self.session.headers.update(headers)  # Update session headers too
     
     def get(self, endpoint, params=None):
         """Send GET request to API endpoint."""

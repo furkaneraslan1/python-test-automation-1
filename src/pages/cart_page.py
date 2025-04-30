@@ -1,4 +1,3 @@
-# src/pages/cart_page.py
 from selenium.webdriver.common.by import By
 from . import BasePage
 from .checkout_page import CheckoutPage

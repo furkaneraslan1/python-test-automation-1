@@ -1,6 +1,6 @@
 import pytest
 import time
-from src.pages.store_home_page import StoreHomePage
+from pages.store_home_page import StoreHomePage
 
 @pytest.mark.e2e
 def test_search_and_verify_availability(browser, api_client):
@@ -25,5 +25,5 @@ def test_search_and_verify_availability(browser, api_client):
     assert "data" in response_data, "API response does not contain 'data' key"
 
     # Simulate matching product name with API data
-    # In a real scenario, you would check against actual product data from the API
+    # In a real scenario, we would check against actual product data from the API
     print(f"Verified product availability in API: {response_data['data']}")

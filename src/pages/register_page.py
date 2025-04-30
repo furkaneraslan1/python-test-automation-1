@@ -1,4 +1,3 @@
-# src/pages/register_page.py
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from . import BasePage

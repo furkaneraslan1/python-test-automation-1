@@ -1,6 +1,7 @@
 {
   "baseUrl": "https://automationteststore.com/",
   "api_base_url": "https://reqres.in/api/",
+  "api_key": "reqres-free-v1",
   "timeout": 10,
   "chromedriver_path": "C:\\drivers\\chromedriver.exe",
   "test_user": {

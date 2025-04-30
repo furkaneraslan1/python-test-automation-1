@@ -1,8 +1,7 @@
-# src/tests/test_shopping_flow.py
 import pytest
 import random
 import string
-from src.pages.store_home_page import StoreHomePage
+from pages.store_home_page import StoreHomePage
 
 @pytest.mark.smoke
 @pytest.mark.search

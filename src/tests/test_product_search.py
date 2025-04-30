@@ -1,7 +1,6 @@
-# src/tests/test_product_search.py
 import pytest
-from src.pages.store_home_page import StoreHomePage
-from src.utils.test_data import TestData
+from pages.store_home_page import StoreHomePage
+from utils.test_data import TestData
 
 @pytest.mark.parametrize(
     "search_term,expected_results", 
